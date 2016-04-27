@@ -7,21 +7,12 @@ public class Seeder {
 	 * 
 	 * 1. Im Laufe der Entwicklung muss die Datenbank immer wieder neu 
 	 * aufgesetzt werden: zB weil neue Spalten hinzugefügt oder gelöscht 
-	 * werden müssen. Jedes Mal neue Daten einzugeben ist sehr anstrengend.
+	 * werden müssen. Jedes Mal neue Tabellen zu erstellen und die Daten 
+	 * dafür einzugeben ist sehr anstrengend.
 	 * 
 	 * 2. Mit Testdaten lässt sich die Funktionalität der Datenbank/Applikation 
 	 * schnell testen. Wenn Tabellen und Daten nicht richtig zusammenpassen, 
 	 * fällt das mit einem Seeder schnell auf.
-	 */
-
-	/** !!Wie es funktioniert:
-	 *  Für jede MapperKlasse (bsp: SomeObjectMapper) braucht es einen Block,
-	 *  der in der Vorlage eingerahmt wird von den Kommentaren 'someTable start' 
-	 *  und 'someTable end'. Jeder Block besteht aus einer Methode (bsp: seedSomeTable()), 
-	 *  die die Datenbank füllt und Arrays aus den nötigen Werten (bsp: 'someValues').
-	 *  
-	 *  Die seedSomeTable() Methode ruft in der entsprechenden MapperKlasse
-	 *  (bsp: SomeObjectMapper) die insert() Methode auf (bsp: insertSObject()).
 	 */
 	
 	/* !!HowTo:
