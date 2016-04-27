@@ -55,11 +55,14 @@ public class Seeder {
 		seed();
 	}
 	
+
 	/**Hier müssen die createTable() Methoden der Mapper eingefügt werden */
 	private void migrate(){
 		SomeMapper.someMapper().createTable();
 		//nächster Mapper@createTable();
-	
+	}
+
+
 	/**Hier werden die selbstgeschriebenen Methoden weiter unten eingefügt */
 	private void seed(){
 		seedSomeTable();
