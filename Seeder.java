@@ -2,15 +2,15 @@ public class Seeder {
 
 	
 	/* !!Was ist das und warum?
-	 * Der Seeder füllt die DB mit Dummy-Daten. Denn um zu Testen sind 
-	 * Testdaten sehr praktisch:
+	 * Der Seeder erstellt erst die nötigen Tabellen und füllt sie mit Dummy-Daten. 
+	 * Während der Entwicklung ist das sehr praktisch:
 	 * 
 	 * 1. Im Laufe der Entwicklung muss die Datenbank immer wieder neu 
 	 * aufgesetzt werden: zB weil neue Spalten hinzugefügt oder gelöscht 
 	 * werden müssen. Jedes Mal neue Daten einzugeben ist sehr anstrengend.
 	 * 
 	 * 2. Mit Testdaten lässt sich die Funktionalität der Datenbank/Applikation 
-	 * schnell testen.Wenn Tabellen und Daten nicht richtig zusammenpassen, 
+	 * schnell testen. Wenn Tabellen und Daten nicht richtig zusammenpassen, 
 	 * fällt das mit einem Seeder schnell auf.
 	 */
 
@@ -47,23 +47,27 @@ public class Seeder {
 	 * 7. Sich freuen wie n Iltis! 
 	 * 
 	 */
+	
 
+	/** Diese Methode startet den ganzen Prozess) */
 	public void init(){
 		migrate();
 		seed();
 	}
 	
+	/**Hier müssen die createTable() Methoden der Mapper eingefügt werden */
 	private void migrate(){
 		SomeMapper.someMapper().createTable();
 		//nächster Mapper@createTable();
 	
+	/**Hier werden die selbstgeschriebenen Methoden weiter unten eingefügt */
 	private void seed(){
 		seedSomeTable();
 		//nächste seedSomeTable();
 	}
 	
 	/************* someTable start *******************/
-	public void seedSomeTable(){
+	private void seedSomeTable(){
 		for(int i = 0; i < someValues.length; i++){
 			SomeObject so = new SomeObject();
 			so.setAlter(someValues[i]);
