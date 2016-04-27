@@ -54,7 +54,7 @@ public class Seeder {
 	}
 
 
-	/**Hier werden die selbstgeschriebenen Methoden weiter unten eingefügt */
+	/**Hier werden die selbstgeschriebenen Methoden aus den Blöcken unten eingefügt */
 	private void seed(){
 		seedSomeTable();
 		//nächste seedSomeTable();
