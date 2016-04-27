@@ -53,11 +53,11 @@ public class Seeder {
 		seed();
 	}
 	
-	public void migrate(){
+	private void migrate(){
 		SomeMapper.someMapper().createTable();
 		//nächster Mapper@createTable();
 	
-	public void seed(){
+	private void seed(){
 		seedSomeTable();
 		//nächste seedSomeTable();
 	}
