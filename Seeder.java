@@ -22,11 +22,6 @@ public class Seeder {
 	 *  
 	 *  Die seedSomeTable() Methode ruft in der entsprechenden MapperKlasse
 	 *  (bsp: SomeObjectMapper) die insert() Methode auf (bsp: insertSObject()).
-	 *  
-	 *  Achtung: es gibt 2 Möglichkeiten: 
-	 *  M1: eure insert-Methode nimmt ein Object. So macht es der Thies. 
-	 *  (siehe AccountMapper.insert() @Bank2.0)
-	 *  M2: eure insert-Methode nimmt alle Parameter einzeln.
 	 */
 	
 	/* !!HowTo:
@@ -43,7 +38,8 @@ public class Seeder {
 	 * 4. Eine Schleife in die seedProfilTable() schreiben, die die Mapper.insert()
 	 *    benutzt und dafür die Werte aus den Arrays aus 3. benutzt.
 	 *    
-	 * 5. Die neue Methode aus 2. in die seed() Methode schreiben.
+	 * 5. Die neue Methode aus 2. in die seed() Methode schreiben. 
+	 *    5.1 Die createTable() des Mappers in die migrate() Methode schreiben.
 	 * 
 	 * 6. Von wo auch immer die seed() Methode aufrufen. Die ruft alle andern Methoden
 	 *    auf und befüllt eure Datenbank.
@@ -51,23 +47,28 @@ public class Seeder {
 	 * 7. Sich freuen wie n Iltis! 
 	 * 
 	 */
+
+	public void init(){
+		migrate();
+		seed();
+	}
+	
+	public void migrate(){
+		SomeMapper.someMapper().createTable();
+		//nächster Mapper@createTable();
 	
 	public void seed(){
 		seedSomeTable();
+		//nächste seedSomeTable();
 	}
 	
 	/************* someTable start *******************/
 	public void seedSomeTable(){
 		for(int i = 0; i < someValues.length; i++){
-			//M1
 			SomeObject so = new SomeObject();
 			so.setAlter(someValues[i]);
 			so.setFname(someOtherValues[i]);
 			SomeObjectMapper.someObjectMapper().insertSObject(so);
-			
-			//M2 (Anm.: entweder M1 oder M2)
-			ProfilMapper.profilMapper().insertProfil(
-							someValues[i], someOtherValues[i]);
 		}
 	}
 	
