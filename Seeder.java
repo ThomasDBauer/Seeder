@@ -32,8 +32,10 @@ public class Seeder {
 	 * 5. Die neue Methode aus 2. in die seed() Methode schreiben. 
 	 *    5.1 Die createTable() des Mappers in die migrate() Methode schreiben.
 	 * 
-	 * 6. Von wo auch immer die seed() Methode aufrufen. Die ruft alle andern Methoden
-	 *    auf und befüllt eure Datenbank.
+	 * 6. Von wo auch immer die seed() Methode aufrufen. Die ruft alle anderen Methoden
+	 *    auf und befüllt die Datenbank.
+	 *    Hier bietet sich die Klasse SeedButton an, die mit einer Zeile instanziiert und
+	 *    einem Panel hinzugefügt werden kann.
 	 *    
 	 * 7. Sich freuen wie n Iltis! 
 	 * 
